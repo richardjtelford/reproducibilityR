@@ -8,7 +8,7 @@ csl: etc/elsevier-harvard_rjt.csl
 ---
 
 ```{r setup_rmd, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 library("tidyverse")
 bt <- "`"
 ```
@@ -127,7 +127,7 @@ head(iris, 3) %>% knitr::kable(caption = "A kable table")
 
 ## Table and Figure numbering {.subsection}
 
-```{r comment = "" }
+```{r comment = "", echo = FALSE}
 '{r cars-figure, fig.cap="Plot showing relationship ..."}
 ggplot(mtcars, aes(wt, mpg)) + geom_point()
 ' -> my_code_string
@@ -194,7 +194,7 @@ draft("MyArticle.Rmd", template = "plos_article", package = "rticles")
 
 Slow code? Cache chunks with 
 
-```{r comment = ""}
+```{r comment = "", echo = FALSE}
 '{r chunk, cache = TRUE}
 ggplot(mtcars, aes(wt, mpg)) + geom_point()
 ' -> my_code_string
@@ -204,14 +204,16 @@ cat("```", my_code_string, "```", sep = "")
 
 Too much code? Use `knitr::read_chunk` to read code from a file.
 
-```{r comment = ""}
+```{r comment = "", echo = FALSE}
 '{r load_chunks, cache = FALSE, message=FALSE}
 knitr::read_chunk("R/load_data.R")
+# file includes line  ## ---- load_data
 ' -> code
 
 '{r load_data}' -> code2
 
 cat("```", code, "```\n```", code2, "\n```", sep = "")
+
 ```
 
 Better solution - `drake` package
@@ -223,7 +225,7 @@ Caches intermediate objects, only remakes them if code or data changes.
 See example
 
 ```{r, eval = FALSE}
-drake::example_drake("main")
+drake::drake_example("main")
 ```
 
 

@@ -5,8 +5,12 @@ date: '2016-05-05'
 ---
 
 ```{r setup_stg, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
+
+##
+<blockquote class="twitter-tweet" data-lang="en" width = "550"><p lang="en" dir="ltr">The only way to write good code is to write tons of shitty code first. Feeling shame about bad code stops you from getting to good code</p>&mdash; Hadley Wickham (\@hadleywickham) <a href="https://twitter.com/hadleywickham/status/589068687669243905">17 April 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Why
 
@@ -110,8 +114,8 @@ Repeated code is hard to maintain
 Make repeated code into functions.
 
 ```{r functions, eval = FALSE}
-my_fun <- function(x, pow = 2) {x ^ pow}
-my_fun(7)
+raise_to_power <- function(x, pow = 2) {x ^ pow}
+raise_to_powerw(7)
 ```
 Single place to maintain
 
@@ -140,6 +144,13 @@ or `setwd('c://my_files/my_project/')`
 Use paths relative to rstudio project
 
 or use `here::here()`
+
+```{r here, eval = FALSE}
+f <- here::here("etc/reproducibility.bib")
+f
+readLines(f)
+```
+
 
 ## Reading
 
