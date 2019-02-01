@@ -1,0 +1,24 @@
+---
+title: "Dependency Management"
+author: "Richard J. Telford"
+date: "January 30, 2019"
+output: ioslides_presentation
+---
+
+```{r setup_depman, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+##
+Packages evolve ... things break.
+
+Code alone is not enough to ensure reproducibility. Also need to use same version of dependencies - R packages, etc.
+
+### Solutions
+
+- **packrat**. Keeps track of and installs R packages used
+
+- **[rocker](https://www.rocker-project.org/)**. Runs R code in a docker container. 
+
+- **[codeocean.com](codeocean.com)**. Cloud-based computational reproducibility platform
+
